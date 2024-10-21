@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Palindrome Checker</title>
+    <title>회문 탐지기Palindrome Checker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>Palindrome Checker</h1>
+    <h1>회문 탐지기 (Palindrome Checker)</h1>
+ <div class="container">
+  <p class="rules">회문 예시 (palindrome examples): "토마토", "abba", "ac가나가ca"</p>
+   <p class="rules">회문이 아닌 예시 (examples that are not palidromes): "djowijasp", "ㅓ애ㅑㅓㅈㄷㅇ", "가나다라"</p>
+  <p class="rules">자음/모음만 있는 한글 입력값, 특수문자는 무시하고 처리합니다</p>
+  </div>
     <div id="container">
       <input id="text-input" placeholder = "Text here">
       <button id="check-btn">Check</button>
     </div>
     <div id="result"></div>
-    <p>Created by Seohyeon Lee</p>
     <script src="index.js"></script>
 </body>
 </html>
