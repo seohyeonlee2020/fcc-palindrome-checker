@@ -1,14 +1,18 @@
 console.log("script works");
+console.log("가나다라");
 const checkBtn = document.getElementById("check-btn");
 const textInput = document.getElementById("text-input");
 const result = document.getElementById("result")
 
-console.log(checkBtn, 'check button');
-console.log('input', textInput);
+const checkHangul = (input) => {
+  const isHangul = /[ㄱ-ㅎㅏ-ㅣ가-힣]/;
+  console.log('checkHangul result:', isHangul.test(input));
+  return isHangul.test(input);
+}
 
 const cleanInput = (input) => {
-  const regex = /[^a-zA-Z0-9]/g;
-  const cleaned = input.toLowerCase().replace(regex, "").trim()
+  const InvalidChar = /[^a-zA-Z0-9가-힣]/g;
+  const cleaned = input.toLowerCase().replace(InvalidChar, "").trim()
   console.log(cleaned);
   return cleaned;
 }
@@ -38,19 +42,37 @@ const processInput = () => {
   //clean input
   const cleanedStr = cleanInput(input);
   //edge case: if cleanedStr is empty
+  //clean both hangul and alphabet
+  //for hangul, leave only complete characters
+  //ignore anything outside of complete hangul and alphanumeric
+  
   if (input && cleanedStr.length == 0){
     alert("Invalid input");
     return;
   }
   //determine if input is a palindrome
-  let resultText = input;
+  //if any amount of hangul is included, output comes in korean
+  let resultText = "";
+  const hasHangul = checkHangul(input);
   if (checkPalindrome(cleanedStr)){
-    resultText += " is a palindrome";
+    
+    if (hasHangul){
+      resultText += `회문입니다`;
+    }
+    else {
+      resultText += " is a palindrome";
+    }
   }
   else {
-    resultText += " is not a palindrome";
+    if (hasHangul){
+      resultText += `회문이 아닙니다`;
+    }
+    else {
+      resultText += " is not a palindrome";
+    }
   }
   console.log(resultText);
   result.innerText = resultText;
 }
-checkBtn.addEventListener("click", processInput);
+
+checkBtn.addEventListener("click", processInput)
