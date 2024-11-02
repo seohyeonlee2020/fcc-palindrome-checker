@@ -16,6 +16,8 @@ body {
   height: 100vh; /* Full viewport height */
 }
 
+
+
 /* Heading styling */
 h1 {
   margin-bottom: 20px; /* Space below heading */
@@ -44,8 +46,8 @@ button {
   padding: 10px; /* Space inside button */
   border: none; /* No border */
   border-radius: 4px; /* Rounded corners */
-  background-color: #4CAF50; /* Green background */
-  color: white; /* White text */
+  background-color: #4CAF50;
+  color: var(--btnColor);
   font-size: 1rem; /* Standard font size */
   cursor: pointer; /* Pointer cursor on hover */
   transition: background-color 0.3s; /* Smooth transition for background */
@@ -61,4 +63,18 @@ button:hover {
   margin-top: 20px; /* Space above result */
   font-size: 1.1rem; /* Slightly larger text for results */
   color: #333; /* Text color for results */
+}
+
+.light-theme{
+	background-color: #f5f5f5;
+  	color: #333;
+	--btnBgColor: black;
+	--btnColor: #green;
+}
+
+.dark-theme{
+	background-color: #333;
+  	color: #f5f5f5;
+	--btnBgColor: #4CAF50;
+	--btnColor: #f5f5f5;
 }

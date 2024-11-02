@@ -3,6 +3,7 @@ console.log("가나다라");
 const checkBtn = document.getElementById("check-btn");
 const textInput = document.getElementById("text-input");
 const result = document.getElementById("result")
+const lightDark = document.getElementById("light-dark");
 
 const checkHangul = (input) => {
   const isHangul = /[ㄱ-ㅎㅏ-ㅣ가-힣]/;
@@ -45,7 +46,7 @@ const processInput = () => {
   //clean both hangul and alphabet
   //for hangul, leave only complete characters
   //ignore anything outside of complete hangul and alphanumeric
-  
+
   if (input && cleanedStr.length == 0){
     alert("Invalid input");
     return;
@@ -55,7 +56,7 @@ const processInput = () => {
   let resultText = "";
   const hasHangul = checkHangul(input);
   if (checkPalindrome(cleanedStr)){
-    
+
     if (hasHangul){
       resultText += `회문입니다`;
     }
@@ -76,3 +77,9 @@ const processInput = () => {
 }
 
 checkBtn.addEventListener("click", processInput)
+lightDark.addEventListener("click", () => {
+	  document.body.classList.toggle("dark-theme");
+	  document.body.classList.toggle("light-theme");
+  	console.log("light-dark clicked");
+})
+
